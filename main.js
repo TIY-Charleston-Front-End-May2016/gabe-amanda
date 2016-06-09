@@ -12,7 +12,7 @@ var chatApp = {
     chatApp.events();
   },
   styling: function () {
-
+    // chatApp.getChats
   },
   events: function () {
     $('form').submit(function () {
@@ -20,7 +20,7 @@ var chatApp = {
     if ($('input').val() !== '') {
       var input_value = $(this).val();
       var thingChatted = {
-        chat: input_value
+        chat: input_value,
       }
       chatApp.createChat(thingChatted)
       $('#usermsg').append(`'.chatbox'${input_value}`);
