@@ -17,13 +17,14 @@ a {
 }
   a:hover {
     text-decoration: underline;
+    color: #6ED6BD;
   }
-.wrapper, .loginform {
+.wrapper, #loginform {
   margin: 0 auto;
   padding-bottom: 25px;
-  background-color: ;
+  background-color: #F4CD56;
   width: 504px;
-  border: 1px solid black;
+  border: 5px solid #6ED6BD;
 }
 #loginform {
   padding-top: 18px;
@@ -39,15 +40,19 @@ a {
   background: #FFF;
   height: 270px;
   width: 430px;
-  border: 1px solid black;
+  border: 5px solid #6ED6BD;
   overflow: auto;
 }
 #usermsg {
   width: 395px;
-  border: 1px solid black;
+  border: 5px solid #6ED6BD;
 }
 #submit {
   width: 60px;
+}
+#submitmsg {
+  color: #839AAA;
+  background-color: #6ED6BD;
 }
 .error {
   color: #FF0000;
