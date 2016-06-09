@@ -9,21 +9,21 @@
   </head>
   <body>
 
-<!-- Area around the chat window     -->
+  <!-- Area around the chat window     -->
   <div class="wrapper">
-      <div class="menu">
-          <p class="welcome">Hello,</p><b></b>
-          <p class="logout"><a id="exit" href="#">Leave Chat</a></p>
-          <div style="clear:both"></div>
-      </div>
-  </div>
-<!-- Area that contains chat messages -->
-  <div class="chatbox">
-      <form name="message" action="">
-          <input name="usermessages" type="text" id="usermsg" size="63" />
-          <input name="submitmessages" type="submit"  id="submitmsg" value="Send" />
-      </form>
-  </div>
+    <div class="menu">
+        <p class="welcome">Welcome, <b></b></p>
+        <p class="logout"><a id="exit" href="#">Exit Chat</a></p>
+        <div style="clear:both"></div>
+    </div>
+    <!-- Area that contains chat messages -->
+    <div class="chatbox"></div>
+
+    <form name="message" action="">
+        <input name="usermessage" type="text" id="usermsg" size="63" />
+        <input name="submitmessage" type="submit"  id="submitmsg" value="Send" />
+    </form>
+</div>
 
   <script src="node_modules/jquery/dist/jquery.js"></script>
   <!-- <script src="node_modules/underscore/underscore.js" charset="utf-8"></script> -->
