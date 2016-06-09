@@ -14,7 +14,8 @@ var chatApp = {
   styling: function () {
     // chatApp.getChats
   },
-  events: function () {
+events: function () {
+//////THIS WORKS DON'T TOUCH IT/////////
     $('form').submit(function () {
     event.preventDefault();
     if ($('input').val() !== '') {
@@ -27,7 +28,10 @@ var chatApp = {
     };
     $('#usermsg').val('');
     return false;
-  })
+    })
+    $('#exit').on('click', function(){
+    $('li').hide();
+    })
 },
 
 
@@ -38,6 +42,7 @@ var chatApp = {
 
   //////CODING AJAX HERE///////////////////
   //////Step 1: Getting chats to post in the chat window///////
+  //////THIS WORKS DON'T TOUCH IT///////////
   createChat: function(chatMessage) {
     $.ajax({
       url: chatApp.url,
