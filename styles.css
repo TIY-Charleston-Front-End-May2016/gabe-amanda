@@ -18,19 +18,19 @@ a {
   a:hover {
     text-decoration: underline;
   }
-.wrapper, /*.loginform*/ {
+.wrapper, .loginform {
   margin: 0 auto;
   padding-bottom: 25px;
   background-color: ;
   width: 504px;
-  border: 1px solid 'color here';
+  border: 1px solid black;
 }
-/*#loginform {
+#loginform {
   padding-top: 18px;
 }
   #loginform p {
     margin: 5px;
-  }*/
+  }
 .chatbox {
   text-align: left;
   margin: 0 auto;
@@ -39,12 +39,12 @@ a {
   background: #FFF;
   height: 270px;
   width: 430px;
-  border: 1px solid 'color here';
+  border: 1px solid black;
   overflow: auto;
 }
 #usermsg {
   width: 395px;
-  border: 1px solid 'color here';
+  border: 1px solid black;
 }
 #submit {
   width: 60px;
