@@ -18,20 +18,20 @@ a {
   a:hover {
     text-decoration: underline;
   }
-#wrapper, #loginform {
+.wrapper, /*.loginform*/ {
   margin: 0 auto;
   padding-bottom: 25px;
   background-color: ;
   width: 504px;
   border: 1px solid 'color here';
 }
-#loginform {
+/*#loginform {
   padding-top: 18px;
 }
   #loginform p {
     margin: 5px;
-  }
-#chatbox {
+  }*/
+.chatbox {
   text-align: left;
   margin: 0 auto;
   margin-bottom: 25px;
@@ -52,7 +52,7 @@ a {
 .error {
   color: #FF0000;
 }
-#menu {
+.menu {
   padding: 12.5px 25px;
 }
 .welcome {
@@ -61,6 +61,6 @@ a {
 .logout {
   float: right;
 }
-msgln {
+.msgln {
   margin: 0 0 2px 0;
 }
