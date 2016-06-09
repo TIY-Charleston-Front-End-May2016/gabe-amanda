@@ -18,14 +18,14 @@ var chatApp = {
     $('form').submit(function () {
     event.preventDefault();
     if ($('input').val() !== '') {
-      var input_value = $(this).val();
+      var input_value = $(this).find('input').val();
       var thingChatted = {
         chat: input_value
       }
       chatApp.createChat(thingChatted)
-      $('#usermsg').append(`'.chatbox'${input_value}`);
+      $('.chatbox').append(`<li>${input_value}</li>`);
     };
-    $('input').val('');
+    $('#usermsg').val('');
     return false;
   })
 },
@@ -53,4 +53,22 @@ var chatApp = {
       }
     })
   },
+//   getChat: function() {
+//   $.ajax({
+//     url: chatApp.url,
+//     method: "GET",
+//     success: function(data) {
+//       console.log("worked", data);
+//       $('ul').html("");
+//       data.forEach(function(element,idx) {
+//         var toDoStr = `<li data-id="${element._id}">${element.todo}<a href=""> ✓</a></li>`
+//         $('ul').append(toDoStr)
+//         chatApp.chats.push(element);
+//       });
+//     },
+//     error: function(err) {
+//       console.error("ugh", err);
+//     }
+//   })
+// },
 };
