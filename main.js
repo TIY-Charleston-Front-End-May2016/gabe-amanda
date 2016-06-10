@@ -19,7 +19,9 @@ var chatApp = {
     chatApp.events();
   },
   styling: function () {
-    chatApp.getChat();
+    setInterval(function(){
+      chatApp.getChat();
+    },2000)
   },
 events: function () {
 //////THIS WORKS DON'T TOUCH IT/////////
