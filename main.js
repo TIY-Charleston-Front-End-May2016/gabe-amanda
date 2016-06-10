@@ -2,13 +2,6 @@ $(document).ready(function() {
   chatApp.init();
 })
 
-/////this prompts the user to enter their name on page load. it store the data and uses it below on "form submit under events"
-// var username = prompt("Please enter your username:");///////////NEW CODE//////
-// if (username === null) {
-//   prompt("Sorry you must enter a username. Please enter your username")
-// }
-// var time = new Date();
-
 ////////CODING JS HERE/////////////
 
 var chatApp = {
@@ -24,6 +17,7 @@ var chatApp = {
     setInterval(function(){
       chatApp.getChat();
     },2000)
+
   },
 events: function () {
 //////THIS WORKS DON'T TOUCH IT/////////
@@ -35,12 +29,11 @@ events: function () {
         var thingChatted = {
           chat: input_value,
           username: user_value
-          // username: username///// NEW CODE
+
         }
         chatApp.createChat(thingChatted)
         $('.chatbox').append(`<li>${user_value}   ${input_value}<a href="#"> x</a></li>`);
-        $('.welcome').append(`Welcome, ${user_value}!`);
-
+        $('.welcome').html(`Welcome, ${user_value}!`);
 
         $('#usermsg').val('');
   /////might be where set interval happens of 2 seconds
@@ -61,20 +54,17 @@ events: function () {
 
 
 
-
-    $('#exit').on('click', function(element){
-      console.log("WHAT THE HECK")
-      event.preventDefault();
-      var chatId = $(this).find('.chatbox').data('id');/////showing as undefined in console. reason why deleteChat is not working
-      console.log(chatId)
-      console.log('this is the chatID',chatId)
-      window.glob = $(this);
-      chatApp.deleteChat(chatId);
-    })
+    //
+    // $('#exit').on('click', function(element){
+    //   console.log("WHAT THE HECK")
+    //   event.preventDefault();
+    //   var chatId = $(this).find('.chatbox').data('id');/////showing as undefined in console. reason why deleteChat is not working
+    //   console.log(chatId)
+    //   console.log('this is the chatID',chatId)
+    //   window.glob = $(this);
+    //   chatApp.deleteChat(chatId);
+    // })
 },
-
-
-
 
   //////CODING AJAX HERE///////////////////
   //////Step 1: Getting chats to post in the chat window///////
@@ -90,7 +80,7 @@ events: function () {
           chatApp.chats.push(data);
 
           chatApp.chats.forEach(function(element,idx) {
-            var chatStr = `<li data-id="${element._id}">${element.chat}<a href="#"> X</a></li>`
+            var chatStr = `<li data-id="${element._id}">${element.chat}<a href="#"> x</a></li>`
             $('.chatbox').append(chatStr)
           })
           // chatApp.getChat()
@@ -108,7 +98,7 @@ events: function () {
         console.log("worked", data);
         $('li').html("");
         data.forEach(function(element,idx) {
-          var chatStr = `<li data-id="${element._id}">${element.username}:  ${element.chat}<a href="#"> X</a></li>`
+          var chatStr = `<li data-id="${element._id}">${element.username}:  ${element.chat}<a href="#"> x</a></li>`
           $('.chatbox').append(chatStr)
           chatApp.chats.push(element);
         });
