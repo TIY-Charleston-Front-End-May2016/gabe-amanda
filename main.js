@@ -19,6 +19,7 @@ var chatApp = {
     chatApp.events();
   },
   styling: function () {
+
     chatApp.getChat();
   },
 events: function () {
