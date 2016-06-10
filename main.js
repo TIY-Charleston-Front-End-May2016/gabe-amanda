@@ -19,38 +19,45 @@ var chatApp = {
     chatApp.events();
   },
   styling: function () {
-    // chatApp.getChat();
+    chatApp.getChat();
   },
 events: function () {
 //////THIS WORKS DON'T TOUCH IT/////////
     $('form').submit(function () {
-    event.preventDefault();
-    if ($('input').val() !== '') {
-      var input_value = $(this).find('input').val();
-      var thingChatted = {
-        chat: input_value,
+      event.preventDefault();
+      if ($('input').val() !== '') {
+        var input_value = $(this).find('input').val();
+        var thingChatted = {
+          chat: input_value,
+          // username: username///// NEW CODE
+        }
+        chatApp.createChat(thingChatted)
+        $('.chatbox').append(`<li>${input_value}<a href="#"> x</a></li>`);/////NEW CODE
+        // ${time} ${username} :
 
-        // username: username///// NEW CODE
-      }
-      chatApp.createChat(thingChatted)
-      $('.chatbox').append(`<li>${input_value}<a href=""> x</a></li>`);/////NEW CODE ${time} ${username} :
-/////might be where set interval happens of 2 seconds
-    };
+
+        $('#usermsg').val('');
+  /////might be where set interval happens of 2 seconds
+      };
+    })
 ///////Click event for delete/////
-    $(document).on('click', 'a', function (element) {
+    $('.chatbox').on('click', 'a', function (element) {
+      console.log("WHAT THE HECK")
       event.preventDefault();
       var chatId = $(this).parent().data('id');/////showing as undefined in console. reason why deleteChat is not working
       console.log(chatId)
+      console.log('this is the chatID',chatId)
+      window.glob = $(this);
       $(this).parent().remove();
       chatApp.deleteChat(chatId);
     });
 
 
-    $('#usermsg').val('');
-    return false;
-    })
+
+
+
     $('#exit').on('click', function(){
-    $('li').hide();
+      $('li').hide();
     })
 },
 
@@ -66,7 +73,14 @@ events: function () {
       data: chatMessage,
       success: function(data) {
         console.log("works", data);
+        $('.chatbox').html("");
+
           chatApp.chats.push(data);
+
+          chatApp.chats.forEach(function(element,idx) {
+            var chatStr = `<li data-id="${element._id}">${element.chat}<a href="#"> X</a></li>`
+            $('.chatbox').append(chatStr)
+          })
           // chatApp.getChat()
       },
       error: function(err) {
@@ -75,22 +89,22 @@ events: function () {
     })
   },
   getChat: function() {/////NEW CODE
-  $.ajax({
-    url: chatApp.url,
-    method: "GET",
-    success: function(data) {
-      console.log("worked", data);
-      $('li').html("");
-      data.forEach(function(element,idx) {
-        var chatStr = `<li data-id="${element._id}">${element.todo}<a href=""> X</a></li>`
-        $('li').append(chatStr)
-        chatApp.chats.push(element);
-      });
-    },
-    error: function(err) {
-      console.error("ugh", err);
-    }
-  })
+    $.ajax({
+      url: chatApp.url,
+      method: "GET",
+      success: function(data) {
+        console.log("worked", data);
+        $('li').html("");
+        data.forEach(function(element,idx) {
+          var chatStr = `<li data-id="${element._id}">${element.chat}<a href="#"> X</a></li>`
+          $('.chatbox').append(chatStr)
+          chatApp.chats.push(element);
+        });
+      },
+      error: function(err) {
+        console.error("ugh", err);
+      }
+    })
   },
   deleteChat: function(chatId) {
     var deleteChat = chatApp.url + "/" + chatId;
@@ -99,7 +113,8 @@ events: function () {
         method: "DELETE",
         success: function(data) {
         console.log("DELETED", data);
-        chatApp.getChat();
+
+
       },
       error: function(err) {
         console.error("ugh", err);
