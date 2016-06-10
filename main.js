@@ -41,8 +41,6 @@ events: function () {
       event.preventDefault();
       var chatId = $(this).parent().data('id');/////showing as undefined in console. reason why deleteChat is not working
       console.log(chatId)
-      window.glob = $(this);
-      console.log(this);
       $(this).parent().remove();
       chatApp.deleteChat(chatId);
     });
