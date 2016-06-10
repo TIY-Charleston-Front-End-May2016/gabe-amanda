@@ -27,9 +27,9 @@ li{
 .wrapper, #loginform {
   margin: 0 auto;
   padding-bottom: 25px;
-  background-color: #F4CD56;
+  background-color: #E1E0B2;
   width: 504px;
-  border: 5px solid #6ED6BD;
+  border: 5px solid #B1D1E0;
 }
 #loginform {
   padding-top: 18px;
@@ -45,18 +45,23 @@ li{
   background: #FFF;
   height: 270px;
   width: 430px;
-  border: 5px solid #6ED6BD;
+  border: 5px solid #B1D1E0;
   overflow: auto;
+}
+.usernameval{
+  border: 3px solid #B1D1E0;
+  text-align: center;
 }
 #usermsg {
   width: 395px;
-  border: 5px solid #6ED6BD;
+  border: 3px solid #B1D1E0;
 }
 #submit {
   width: 60px;
 }
 #submitmsg {
   background-color: #6ED6BD;
+  border-radius: 8px;
   color: #fff;
 }
 .error {
