@@ -77,8 +77,7 @@ events: function () {
           chatApp.chats.push(data);
 
           chatApp.chats.forEach(function(element,idx) {
-            var chatStr = `<li data-id="">${element._id}${element.chat}<a href="#"> X</a></li>`
-            // ${time} ${username} :
+            var chatStr = `<li data-id="${element._id}">${element.chat}<a href="#"> X</a></li>`
             $('.chatbox').append(chatStr)
           })
           // chatApp.getChat()
@@ -96,8 +95,7 @@ events: function () {
         console.log("worked", data);
         $('li').html("");
         data.forEach(function(element,idx) {
-          var chatStr = `<li data-id="">${element._id} ${element.chat}<a href="#"> X</a></li>`
-          // ${time} ${username} :
+          var chatStr = `<li data-id="${element._id}">${element.chat}<a href="#"> X</a></li>`
           $('.chatbox').append(chatStr)
           chatApp.chats.push(element);
         });
