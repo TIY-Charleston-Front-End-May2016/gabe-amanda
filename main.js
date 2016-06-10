@@ -38,8 +38,8 @@ events: function () {
           // username: username///// NEW CODE
         }
         chatApp.createChat(thingChatted)
-        $('.chatbox').append(`<li>${user_value}   ${input_value}<a href="#"> x</a></li>`);/////NEW CODE
-        // ${time} ${username} :
+        $('.chatbox').append(`<li>${user_value}   ${input_value}<a href="#"> x</a></li>`);
+        $('.welcome').append(`Welcome, ${user_value}!`);
 
 
         $('#usermsg').val('');
@@ -62,8 +62,14 @@ events: function () {
 
 
 
-    $('#exit').on('click', function(){
-      $('li').hide();
+    $('#exit').on('click', function(element){
+      console.log("WHAT THE HECK")
+      event.preventDefault();
+      var chatId = $(this).find('.chatbox').data('id');/////showing as undefined in console. reason why deleteChat is not working
+      console.log(chatId)
+      console.log('this is the chatID',chatId)
+      window.glob = $(this);
+      chatApp.deleteChat(chatId);
     })
 },
 
