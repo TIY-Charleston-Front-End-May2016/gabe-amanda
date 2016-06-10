@@ -19,6 +19,8 @@ var chatApp = {
     chatApp.events();
   },
   styling: function () {
+
+    chatApp.getChat();
     setInterval(function(){
       chatApp.getChat();
     },2000)
@@ -28,13 +30,15 @@ events: function () {
     $('form').submit(function () {
       event.preventDefault();
       if ($('input').val() !== '') {
-        var input_value = $(this).find('input').val();
+        var input_value = $(this).find('.messageval').val();
+        var user_value = $(this).find('.usernameval').val();
         var thingChatted = {
           chat: input_value,
+          username: user_value
           // username: username///// NEW CODE
         }
         chatApp.createChat(thingChatted)
-        $('.chatbox').append(`<li>${input_value}<a href="#"> x</a></li>`);/////NEW CODE
+        $('.chatbox').append(`<li>${user_value}   ${input_value}<a href="#"> x</a></li>`);/////NEW CODE
         // ${time} ${username} :
 
 
@@ -98,7 +102,7 @@ events: function () {
         console.log("worked", data);
         $('li').html("");
         data.forEach(function(element,idx) {
-          var chatStr = `<li data-id="${element._id}">${element.chat}<a href="#"> X</a></li>`
+          var chatStr = `<li data-id="${element._id}">${element.username}:  ${element.chat}<a href="#"> X</a></li>`
           $('.chatbox').append(chatStr)
           chatApp.chats.push(element);
         });
